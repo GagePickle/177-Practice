@@ -1,11 +1,15 @@
-const user = {
-  isHungry: false
-};
+// IMPLICIT CONVERSION
+// || means OR
+// If first EXPRESSION is 'truthy', then we don't EVALUATE the right hand-side.
 
-// The result of 'confirm' (true or false) is assigned as the VALUE
-// associated with the KEY inside of 'user'
-// We will MUTATE the OBJECT based on 'confirm'
-user.isHappy = confirm("Are you happy?");
-user.isHungry = confirm("Are you hungry?");
+// 'name' will be a STRING, but it might be blank
+let name = prompt("What is your name?");
 
-console.log(user);
+// If 'name' is blank, then '!' will convert to a Boolean (NOT FALSE)
+// If 'name' is not blank, then '!' will convert to a BOOLEAN (NOT TRUE)
+while (!name) {
+  // while(name === "")
+  name = prompt("What is your name?");
+}
+
+console.log(name);

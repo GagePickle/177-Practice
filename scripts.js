@@ -1,15 +1,24 @@
-// IMPLICIT CONVERSION
-// || means OR
-// If first EXPRESSION is 'truthy', then we don't EVALUATE the right hand-side.
+const uname = document.querySelector("#username");
+const email = document.querySelector("#email");
+const pword = document.querySelector("#password");
 
-// 'name' will be a STRING, but it might be blank
-let name = prompt("What is your name?");
+uname.addEventListener("focus", () => {
+  console.log("Username goes here!");
+});
 
-// If 'name' is blank, then '!' will convert to a Boolean (NOT FALSE)
-// If 'name' is not blank, then '!' will convert to a BOOLEAN (NOT TRUE)
-while (!name) {
-  // while(name === "")
-  name = prompt("What is your name?");
-}
+email.addEventListener("blur", () => {
+  console.log("You left the email input");
+});
 
-console.log(name);
+pword.addEventListener("keydown", () => {
+  console.log("Entering password!");
+});
+
+document.querySelector("form").addEventListener("submit", e => {
+  // Prevent the 'default behavior' 'browser submission.'
+  e.preventDefault();
+
+  document.querySelector(
+    "p"
+  ).textContent = `Username is ${uname.value} - Email is ${email.value} - Password is ${pword.value}`;
+});
